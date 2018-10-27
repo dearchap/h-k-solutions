@@ -6,9 +6,15 @@ layout: default
 
 {% include header.html %}
 
+{{ content }}
+
 <ul class="post-list">
   {% for rule in page.filter %}
+  {% if page.sort %}
+  {% assign posts = site.posts  | sort: "title" %}
+  {% else %}
   {% assign posts = site.posts %}
+  {% endif %}
   {% if rule.by_tag %}
   {% assign posts = posts | where_exp: "post", "post.tags contains rule.by_tag" %}
   {% endif %}
