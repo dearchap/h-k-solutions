@@ -1,5 +1,5 @@
 ---
 layout: home
-filter: 
-   - by_category
+filter:
+  - by_category
 ---

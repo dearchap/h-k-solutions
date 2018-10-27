@@ -26,7 +26,11 @@ layout: default
   {% assign posts = posts | split: " " | sort | uniq %}
   {% assign posts = site.posts | where_exp: "post", "posts contains post.path" %}
   {% else %}
+  {% if page.sort %}
+  {% assign posts = site.posts  | sort: "title" %}
+  {% else % }
   {% assign posts = site.posts %}
+  {% endif %}
   {% endif %}
   {% for post in posts %}
   <li class="post-list-item" data-tags="{{ post.tags | join: " " }}">
